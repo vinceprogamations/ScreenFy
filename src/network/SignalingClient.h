@@ -25,12 +25,14 @@ public:
     bool SendCallAccept(const std::string& targetIp);
     bool SendCallReject(const std::string& targetIp);
     bool SendCallEnd(const std::string& targetIp);
+    bool SendStreamHealthStatus(const std::string& targetIp, const std::string& status);
 
     // Callbacks para UI
     std::function<void(const std::string& caller, const std::string& callerIp, int videoPort)> OnCallRequest;
     std::function<void(const std::string& targetIp)> OnCallAccepted;
     std::function<void(const std::string& targetIp)> OnCallRejected;
     std::function<void(const std::string& targetIp)> OnCallEnded;
+    std::function<void(const std::string& targetIp, const std::string& status)> OnStreamHealthUpdate;
 
 private:
     SignalingClient();

@@ -1,0 +1,12 @@
+build/
+build_logs/
+tools/
+.vs/
+out/
+bin/
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.ini
+temp_build.bat

@@ -14,8 +14,11 @@ public:
     bool Initialize(ID3D11Device* pDevice);
     bool DecodeNAL(const std::vector<uint8_t>& nalUnit);
     bool GetDecodedTexture(ID3D11Texture2D** ppTexture);
+    bool GetDecodedTextureSRV(ID3D11ShaderResourceView** ppSRV);
 
 private:
     Microsoft::WRL::ComPtr<IMFTransform> m_decoder;
     Microsoft::WRL::ComPtr<IMFDXGIDeviceManager> m_devManager;
+    Microsoft::WRL::ComPtr<ID3D11Device> m_device;
+    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_srv;
 };

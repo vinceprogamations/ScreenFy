@@ -382,6 +382,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\Sidebar.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\ChatPanel.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\OverlayCall.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\ConnectionOverlay.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\SettingsPanel.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\GoLiveModal.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\ScreenTestModal.cpp" />
@@ -390,6 +391,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\main.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\client\D3D11VaDecoder.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\client\PresentationEngine.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\engine\StreamEngine.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\engine\StreamHealthMonitor.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.cpp" />

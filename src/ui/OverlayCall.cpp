@@ -77,8 +77,22 @@ void OverlayCall::Render(float screenWidth, float screenHeight, ID3D11ShaderReso
 
     ImGui::Begin("TelemetryHUD", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings);
     
-    // Status do stream
-    ImGui::TextColored(ThemeDiscord::COLOR_GREEN, "●  EM DIRETO (P2P)");
+    // Status do stream (Semáforo Dinâmico)
+    const char* statusIcon = "●";
+    ImU32 statusColor = ImGui::ColorConvertFloat4ToU32(ThemeDiscord::COLOR_GREEN);
+    const char* statusText = "EM DIRETO (P2P)";
+    
+    if (m_packetLoss >= 15.0f || m_latencyMs > 150.0f) {
+        statusColor = ImGui::ColorConvertFloat4ToU32(ThemeDiscord::COLOR_RED);
+        statusText = "CONEXAO CRITICA";
+    } else if (m_packetLoss >= 5.0f || m_latencyMs > 60.0f) {
+        statusColor = IM_COL32(250, 166, 26, 255); // Amarelo Discord
+        statusText = "REDE INSTAVEL (FEC ATIVO)";
+    }
+
+    ImGui::PushStyleColor(ImGuiCol_Text, statusColor);
+    ImGui::Text("%s  %s", statusIcon, statusText);
+    ImGui::PopStyleColor();
     ImGui::Spacing();
     ImGui::Separator();
     ImGui::Spacing();

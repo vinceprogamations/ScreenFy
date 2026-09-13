@@ -2,6 +2,7 @@ C:\Users\Usuario\Desktop\ScreenFy\src\ui\AppWindow.cpp;C:\Users\Usuario\Desktop\
 C:\Users\Usuario\Desktop\ScreenFy\src\ui\Sidebar.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\Sidebar.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\ui\ChatPanel.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\ChatPanel.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\ui\OverlayCall.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\OverlayCall.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\ui\ConnectionOverlay.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\ConnectionOverlay.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\ui\SettingsPanel.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\SettingsPanel.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\ui\GoLiveModal.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\GoLiveModal.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\ui\ScreenTestModal.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\ScreenTestModal.obj
@@ -10,6 +11,8 @@ C:\Users\Usuario\Desktop\ScreenFy\src\capture\ScreenPreviewer.cpp;C:\Users\Usuar
 C:\Users\Usuario\Desktop\ScreenFy\src\main.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\main.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\client\D3D11VaDecoder.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\D3D11VaDecoder.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\client\PresentationEngine.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\PresentationEngine.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\engine\StreamEngine.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\StreamEngine.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\engine\StreamHealthMonitor.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\StreamHealthMonitor.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\DXGICapture.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\WGCCapture.obj
 C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.dir\Release\CaptureEngine.obj

@@ -10,6 +10,8 @@
 #include <imgui_impl_win32.h>
 #include <imgui_impl_dx11.h>
 #include <iostream>
+#include "../engine/StreamEngine.h"
+#include "../engine/StreamHealthMonitor.h"
 #include <algorithm>
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -26,6 +28,7 @@ AppWindow::~AppWindow() {
 void AppWindow::SetD3D11(ID3D11Device* device, ID3D11DeviceContext* context) {
     ScreenPreviewer::Get().Initialize(device, context);
     TextureLoader::Get().Initialize(device, context);
+    StreamEngine::Instance().Initialize(device, context);
 }
 
 LRESULT CALLBACK AppWindow::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
@@ -118,17 +121,39 @@ bool AppWindow::Initialize(int width, int height, const std::string& title) {
 
     SignalingClient::Instance().OnCallAccepted = [this](const std::string& targetIp) {
         m_chatPanel.AddLog("A chamada foi aceite por " + targetIp);
-        m_overlayCall.SetInCall(true, true, "Amigo", targetIp);
+        m_connectionOverlay.StartConnection("Amigo", targetIp, true);
+        StreamEngine::Instance().StartHosting(targetIp, 50000);
     };
 
     SignalingClient::Instance().OnCallRejected = [this](const std::string& targetIp) {
         m_chatPanel.AddLog("A chamada foi recusada por " + targetIp);
         m_overlayCall.SetInCall(false, false, "", "");
+        m_connectionOverlay.CancelConnection();
+        StreamEngine::Instance().Stop();
     };
 
     SignalingClient::Instance().OnCallEnded = [this](const std::string& targetIp) {
         m_chatPanel.AddLog("A chamada foi encerrada por " + targetIp);
         m_overlayCall.SetInCall(false, false, "", "");
+        m_connectionOverlay.CancelConnection();
+        StreamEngine::Instance().Stop();
+    };
+
+    SignalingClient::Instance().OnStreamHealthUpdate = [this](const std::string& targetIp, const std::string& status) {
+        (void)targetIp;
+        if (status == "VIDEO_VISIBLE") {
+            // Cliente confirmou que o vídeo chegou e decodificou
+            StreamHealthMonitor::Instance().HookPeerAck(true);
+        }
+    };
+
+    m_connectionOverlay.OnConnectionEstablished = [this]() {
+        m_overlayCall.SetInCall(true, StreamEngine::Instance().IsHosting(), m_connectionOverlay.GetPeerName(), m_connectionOverlay.GetPeerIp());
+    };
+
+    m_connectionOverlay.OnConnectionCancelled = [this]() {
+        StreamEngine::Instance().Stop();
+        SignalingClient::Instance().SendCallEnd(m_connectionOverlay.GetPeerIp());
     };
 
     // Callback da UI para Iniciar Chamada
@@ -137,7 +162,6 @@ bool AppWindow::Initialize(int width, int height, const std::string& title) {
         (void)fps;
         auto myProf = FriendManager::Instance().GetMyProfile();
         SignalingClient::Instance().SendCallRequest(target.RadminIP, myProf.Nickname, 50000);
-        m_overlayCall.SetInCall(true, true, target.Nickname, target.RadminIP);
         m_chatPanel.AddLog("A enviar pedido de partilha para " + target.Nickname + " (" + target.RadminIP + ")...");
     };
 
@@ -147,6 +171,8 @@ bool AppWindow::Initialize(int width, int height, const std::string& title) {
         if (friendOpt) {
             SignalingClient::Instance().SendCallEnd(friendOpt->RadminIP);
         }
+        m_overlayCall.SetInCall(false, false, "", "");
+        StreamEngine::Instance().Stop();
         m_chatPanel.AddLog("Sessao de partilha terminada.");
     };
 
@@ -172,9 +198,22 @@ void AppWindow::RenderUI() {
 
     ImVec2 displaySize = ImGui::GetIO().DisplaySize;
 
-    if (m_overlayCall.IsInCall()) {
+    if (m_connectionOverlay.IsActive()) {
+        m_connectionOverlay.Render(displaySize.x, displaySize.y);
+    } else if (m_overlayCall.IsInCall()) {
+        // Obter vídeo do Engine
+        ID3D11ShaderResourceView* srv = StreamEngine::Instance().GetReceivedVideoSRV();
+        // Se formos o host e estivermos a transmitir, podemos mostrar o preview local
+        if (!srv && StreamEngine::Instance().IsHosting()) {
+            srv = ScreenPreviewer::Get().GetSRV();
+        }
+        
+        // Passar os dados da telemetria
+        auto status = StreamHealthMonitor::Instance().GetStatus();
+        m_overlayCall.UpdateTelemetry(status.fps, status.pingMs, status.bitrateMbps, status.packetLossPercent);
+        
         // Modo de Transmissão / Visualização Fullscreen
-        m_overlayCall.Render(displaySize.x, displaySize.y);
+        m_overlayCall.Render(displaySize.x, displaySize.y, srv);
     } else {
         // Modo Padrão Discord: Múltiplas Colunas com Layout Responsivo
         ImGui::SetNextWindowPos(ImVec2(0, 0));
@@ -262,7 +301,8 @@ void AppWindow::RenderIncomingCallModal() {
         ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f);
         if (ImGui::Button("Aceitar", ImVec2(115, 36))) {
             SignalingClient::Instance().SendCallAccept(m_incomingCallerIp);
-            m_overlayCall.SetInCall(true, false, m_incomingCaller, m_incomingCallerIp);
+            m_connectionOverlay.StartConnection(m_incomingCaller, m_incomingCallerIp, false);
+            StreamEngine::Instance().StartReceiving(m_incomingCallerIp, m_incomingVideoPort);
             m_incomingCall = false;
             ImGui::CloseCurrentPopup();
         }

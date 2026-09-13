@@ -118,6 +118,9 @@ void SignalingClient::ListenerWorker() {
                     if (OnCallRejected) OnCallRejected(clientIp);
                 } else if (type == "CALL_END") {
                     if (OnCallEnded) OnCallEnded(clientIp);
+                } else if (type == "STREAM_HEALTH") {
+                    std::string status = j.value("status", "");
+                    if (OnStreamHealthUpdate) OnStreamHealthUpdate(clientIp, status);
                 }
             } catch (const std::exception& e) {
                 std::cerr << "[SignalingClient] Erro ao processar mensagem JSON: " << e.what() << std::endl;
@@ -224,5 +227,13 @@ bool SignalingClient::SendCallReject(const std::string& targetIp) {
 
 bool SignalingClient::SendCallEnd(const std::string& targetIp) {
     json j = { {"type", "CALL_END"} };
+    return SendJson(targetIp, m_port, j.dump());
+}
+
+bool SignalingClient::SendStreamHealthStatus(const std::string& targetIp, const std::string& status) {
+    json j = {
+        {"type", "STREAM_HEALTH"},
+        {"status", status}
+    };
     return SendJson(targetIp, m_port, j.dump());
 }

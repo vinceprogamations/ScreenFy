@@ -8,6 +8,7 @@
 #include "ChatPanel.h"
 #include "OverlayCall.h"
 #include "SettingsPanel.h"
+#include "ConnectionOverlay.h"
 
 class AppWindow {
 public:
@@ -32,6 +33,7 @@ private:
     ChatPanel m_chatPanel;
     OverlayCall m_overlayCall;
     SettingsPanel m_settingsPanel;
+    ConnectionOverlay m_connectionOverlay;
 
     // Estado de Configurações e Tutorial
     bool m_showSettings = false;

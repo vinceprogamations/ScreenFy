@@ -58,6 +58,11 @@ set(CLIENT_SOURCES
     src/client/PresentationEngine.cpp
 )
 
+set(ENGINE_SOURCES
+    src/engine/StreamEngine.cpp
+    src/engine/StreamHealthMonitor.cpp
+)
+
 set(CONFIG_SOURCES
     src/config/SettingsManager.cpp
 )
@@ -71,6 +76,7 @@ set(UI_SOURCES
     src/ui/Sidebar.cpp
     src/ui/ChatPanel.cpp
     src/ui/OverlayCall.cpp
+    src/ui/ConnectionOverlay.cpp
     src/ui/SettingsPanel.cpp
     src/ui/GoLiveModal.cpp
     src/ui/ScreenTestModal.cpp
@@ -80,7 +86,7 @@ set(UI_SOURCES
 )
 
 # App Principal Integrada
-add_executable(ScreenShareApp WIN32 ${UI_SOURCES} ${CLIENT_SOURCES} ${CAPTURE_SOURCES} ${ENCODER_SOURCES} ${AUDIO_SOURCES} ${NETWORK_SOURCES} ${SIGNALING_SOURCES} ${IDENTITY_SOURCES} ${CONFIG_SOURCES} ${UTILS_SOURCES})
+add_executable(ScreenShareApp WIN32 ${UI_SOURCES} ${CLIENT_SOURCES} ${ENGINE_SOURCES} ${CAPTURE_SOURCES} ${ENCODER_SOURCES} ${AUDIO_SOURCES} ${NETWORK_SOURCES} ${SIGNALING_SOURCES} ${IDENTITY_SOURCES} ${CONFIG_SOURCES} ${UTILS_SOURCES})
 target_link_libraries(ScreenShareApp PRIVATE d3d11.lib dxgi.lib windowsapp.lib d3dcompiler.lib ws2_32.lib iphlpapi.lib winmm.lib gdi32.lib user32.lib mfplat.lib mfuuid.lib mf.lib mfreadwrite.lib windowscodecs.lib comdlg32.lib Opus::opus imgui::imgui nlohmann_json::nlohmann_json)
 
 # Teste unitário Captura

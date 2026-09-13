@@ -16,6 +16,9 @@ D3D11VaDecoder::~D3D11VaDecoder() {
 }
 
 bool D3D11VaDecoder::Initialize(ID3D11Device* pDevice) {
+    if (!pDevice) return false;
+    m_device = pDevice;
+
     HRESULT hr = CoCreateInstance(CLSID_MSH265DecoderMFT, nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&m_decoder));
     if (FAILED(hr)) return false;
 
@@ -94,5 +97,34 @@ bool D3D11VaDecoder::GetDecodedTexture(ID3D11Texture2D** ppTexture) {
         if (outputDataBuffer.pEvents) outputDataBuffer.pEvents->Release();
         return (*ppTexture) != nullptr;
     }
+    return false;
+}
+
+bool D3D11VaDecoder::GetDecodedTextureSRV(ID3D11ShaderResourceView** ppSRV) {
+    if (!ppSRV) return false;
+
+    Microsoft::WRL::ComPtr<ID3D11Texture2D> pTexture;
+    if (GetDecodedTexture(&pTexture) && pTexture) {
+        D3D11_TEXTURE2D_DESC desc;
+        pTexture->GetDesc(&desc);
+        
+        D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+        srvDesc.Format = DXGI_FORMAT_R8_UNORM; // NV12 luminance plane
+        srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+        srvDesc.Texture2D.MostDetailedMip = 0;
+        srvDesc.Texture2D.MipLevels = 1;
+        
+        HRESULT hr = m_device->CreateShaderResourceView(pTexture.Get(), &srvDesc, m_srv.ReleaseAndGetAddressOf());
+        if (SUCCEEDED(hr)) {
+            *ppSRV = m_srv.Get();
+            return true;
+        }
+    }
+    
+    if (m_srv) {
+        *ppSRV = m_srv.Get();
+        return true;
+    }
+    
     return false;
 }

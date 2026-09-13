@@ -13,6 +13,9 @@
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\OverlayCall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\ConnectionOverlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\SettingsPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -35,6 +38,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\client\PresentationEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\engine\StreamEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\engine\StreamHealthMonitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp">
