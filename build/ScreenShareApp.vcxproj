@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CD6B0462-D890-3332-9FBB-81A68EF9BF29}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <VcpkgEnabled>false</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ScreenShareApp</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ScreenShareApp.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ScreenShareApp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ScreenShareApp.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ScreenShareApp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ScreenShareApp.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ScreenShareApp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ScreenShareApp.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ScreenShareApp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/include" /external:I "C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/include/opus"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NOMINMAX;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;NOMINMAX;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include\opus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include\opus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Users\Usuario\Desktop\ScreenFy\tools\vcpkg\vcpkg.exe z-applocal --target-binary=C:/Users/Usuario/Desktop/ScreenFy/build/Debug/ScreenShareApp.exe --installed-bin-dir=C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/debug/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;windowsapp.lib;d3dcompiler.lib;ws2_32.lib;iphlpapi.lib;winmm.lib;gdi32.lib;user32.lib;mfplat.lib;mfuuid.lib;mf.lib;mfreadwrite.lib;windowscodecs.lib;comdlg32.lib;vcpkg_installed\x64-windows\debug\lib\opus.lib;vcpkg_installed\x64-windows\debug\lib\imguid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Usuario/Desktop/ScreenFy/build/Debug/ScreenShareApp.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Usuario/Desktop/ScreenFy/build/Debug/ScreenShareApp.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/include" /external:I "C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/include/opus"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include\opus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include\opus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Users\Usuario\Desktop\ScreenFy\tools\vcpkg\vcpkg.exe z-applocal --target-binary=C:/Users/Usuario/Desktop/ScreenFy/build/Release/ScreenShareApp.exe --installed-bin-dir=C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;windowsapp.lib;d3dcompiler.lib;ws2_32.lib;iphlpapi.lib;winmm.lib;gdi32.lib;user32.lib;mfplat.lib;mfuuid.lib;mf.lib;mfreadwrite.lib;windowscodecs.lib;comdlg32.lib;vcpkg_installed\x64-windows\lib\opus.lib;vcpkg_installed\x64-windows\lib\imgui.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Usuario/Desktop/ScreenFy/build/Release/ScreenShareApp.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Usuario/Desktop/ScreenFy/build/Release/ScreenShareApp.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/include" /external:I "C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/include/opus"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include\opus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include\opus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Users\Usuario\Desktop\ScreenFy\tools\vcpkg\vcpkg.exe z-applocal --target-binary=C:/Users/Usuario/Desktop/ScreenFy/build/MinSizeRel/ScreenShareApp.exe --installed-bin-dir=C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;windowsapp.lib;d3dcompiler.lib;ws2_32.lib;iphlpapi.lib;winmm.lib;gdi32.lib;user32.lib;mfplat.lib;mfuuid.lib;mf.lib;mfreadwrite.lib;windowscodecs.lib;comdlg32.lib;vcpkg_installed\x64-windows\lib\opus.lib;vcpkg_installed\x64-windows\lib\imgui.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Usuario/Desktop/ScreenFy/build/MinSizeRel/ScreenShareApp.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Usuario/Desktop/ScreenFy/build/MinSizeRel/ScreenShareApp.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/include" /external:I "C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/include/opus"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include\opus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\ScreenFy\src;C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\include\opus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Users\Usuario\Desktop\ScreenFy\tools\vcpkg\vcpkg.exe z-applocal --target-binary=C:/Users/Usuario/Desktop/ScreenFy/build/RelWithDebInfo/ScreenShareApp.exe --installed-bin-dir=C:/Users/Usuario/Desktop/ScreenFy/build/vcpkg_installed/x64-windows/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;windowsapp.lib;d3dcompiler.lib;ws2_32.lib;iphlpapi.lib;winmm.lib;gdi32.lib;user32.lib;mfplat.lib;mfuuid.lib;mf.lib;mfreadwrite.lib;windowscodecs.lib;comdlg32.lib;vcpkg_installed\x64-windows\lib\opus.lib;vcpkg_installed\x64-windows\lib\imgui.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Usuario/Desktop/ScreenFy/build/RelWithDebInfo/ScreenShareApp.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Usuario/Desktop/ScreenFy/build/RelWithDebInfo/ScreenShareApp.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Usuario\Desktop\ScreenFy\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Usuario/Desktop/ScreenFy/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\bin\cmake.exe -SC:/Users/Usuario/Desktop/ScreenFy -BC:/Users/Usuario/Desktop/ScreenFy/build --check-stamp-file C:/Users/Usuario/Desktop/ScreenFy/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeSystem.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-config.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets-debug.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets-release.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonConfig.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonConfigVersion.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonTargets.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusConfig.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusConfigVersion.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets-debug.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets-release.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeFindDependencyMacro.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\FindPackageMessage.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Users\Usuario\Desktop\ScreenFy\vcpkg.json;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Usuario/Desktop/ScreenFy/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\bin\cmake.exe -SC:/Users/Usuario/Desktop/ScreenFy -BC:/Users/Usuario/Desktop/ScreenFy/build --check-stamp-file C:/Users/Usuario/Desktop/ScreenFy/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeSystem.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-config.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets-debug.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets-release.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonConfig.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonConfigVersion.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonTargets.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusConfig.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusConfigVersion.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets-debug.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets-release.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeFindDependencyMacro.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\FindPackageMessage.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Users\Usuario\Desktop\ScreenFy\vcpkg.json;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Usuario/Desktop/ScreenFy/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\bin\cmake.exe -SC:/Users/Usuario/Desktop/ScreenFy -BC:/Users/Usuario/Desktop/ScreenFy/build --check-stamp-file C:/Users/Usuario/Desktop/ScreenFy/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeSystem.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-config.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets-debug.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets-release.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonConfig.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonConfigVersion.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonTargets.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusConfig.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusConfigVersion.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets-debug.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets-release.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeFindDependencyMacro.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\FindPackageMessage.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Users\Usuario\Desktop\ScreenFy\vcpkg.json;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Usuario/Desktop/ScreenFy/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\bin\cmake.exe -SC:/Users/Usuario/Desktop/ScreenFy -BC:/Users/Usuario/Desktop/ScreenFy/build --check-stamp-file C:/Users/Usuario/Desktop/ScreenFy/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\3.27.4\CMakeSystem.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-config.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets-debug.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets-release.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\imgui\imgui-targets.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonConfig.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonConfigVersion.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_jsonTargets.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusConfig.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusConfigVersion.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets-debug.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets-release.cmake;C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\opus\OpusTargets.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeFindDependencyMacro.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\FindPackageMessage.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Users\Usuario\Desktop\ScreenFy\tools\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Users\Usuario\Desktop\ScreenFy\vcpkg.json;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Usuario\Desktop\ScreenFy\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\AppWindow.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\Sidebar.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\ChatPanel.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\OverlayCall.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\SettingsPanel.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\GoLiveModal.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\ScreenTestModal.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\TextureLoader.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\capture\ScreenPreviewer.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\main.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\client\D3D11VaDecoder.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\client\PresentationEngine.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\encoder\ColorConverterD3D11.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\encoder\VideoEncoderNVENC.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\encoder\VideoEncoderAMD.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\encoder\UniversalVideoEncoder.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\audio\WasapiLoopback.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\audio\OpusAudioEncoder.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\network\RtpPacketizer.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\network\ReedSolomonFec.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\network\UdpTransport.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\network\SignalingClient.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\identity\FriendManager.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\config\SettingsManager.cpp" />
+    <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\utils\Logger.cpp" />
+    <Natvis Include="C:\Users\Usuario\Desktop\ScreenFy\build\vcpkg_installed\x64-windows\share\nlohmann_json\nlohmann_json.natvis">
+    </Natvis>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Usuario\Desktop\ScreenFy\build\ZERO_CHECK.vcxproj">
+      <Project>{167E8BFC-8071-330A-90EB-3EDE645578CE}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

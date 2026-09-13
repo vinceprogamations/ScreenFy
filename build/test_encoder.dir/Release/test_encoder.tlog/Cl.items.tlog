@@ -1,0 +1,13 @@
+C:\Users\Usuario\Desktop\ScreenFy\tests\test_encoder.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\test_encoder.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\DXGICapture.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\WGCCapture.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\CaptureEngine.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\encoder\ColorConverterD3D11.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\ColorConverterD3D11.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\encoder\VideoEncoderNVENC.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\VideoEncoderNVENC.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\encoder\VideoEncoderAMD.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\VideoEncoderAMD.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\encoder\UniversalVideoEncoder.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\UniversalVideoEncoder.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\audio\WasapiLoopback.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\WasapiLoopback.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\audio\OpusAudioEncoder.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\OpusAudioEncoder.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\config\SettingsManager.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\SettingsManager.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\identity\FriendManager.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\FriendManager.obj
+C:\Users\Usuario\Desktop\ScreenFy\src\utils\Logger.cpp;C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.dir\Release\Logger.obj

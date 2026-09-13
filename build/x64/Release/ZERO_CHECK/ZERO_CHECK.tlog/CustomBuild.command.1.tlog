@@ -1,0 +1,10 @@
+^C:\USERS\USUARIO\DESKTOP\SCREENFY\BUILD\CMAKEFILES\DFA1BB1A71FCDDC816C2F40F0AC33E67\GENERATE.STAMP.RULE
+setlocal
+C:\Users\Usuario\Desktop\ScreenFy\tools\cmake\bin\cmake.exe -SC:/Users/Usuario/Desktop/ScreenFy -BC:/Users/Usuario/Desktop/ScreenFy/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Usuario/Desktop/ScreenFy/build/ScreenShare4K.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

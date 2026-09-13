@@ -1,0 +1,443 @@
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.12.1
+** Copyright (c) 2022 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+CMake is re-running because C:/Users/Usuario/Desktop/ScreenFy/build/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Usuario/Desktop/ScreenFy/CMakeLists.txt'
+  is newer than 'C:/Users/Usuario/Desktop/ScreenFy/build/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Running vcpkg install
+Detecting compiler hash for triplet x64-windows...
+Compiler found: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.42.34433/bin/Hostx64/x64/cl.exe
+The following packages are already installed:
+    imgui[core,win32-binding,dx11-binding]:x64-windows@1.92.9
+    opus:x64-windows@1.6.1
+  * vcpkg-cmake:x64-windows@2025-08-07
+  * vcpkg-cmake-config:x64-windows@2026-07-21
+imgui provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(imgui CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE imgui::imgui)
+
+opus provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(Opus CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Opus::opus)
+
+opus provides pkg-config modules:
+
+  # Opus IETF audio codec ( build)
+  opus
+
+All requested installations completed successfully in: 302 us
+-- Running vcpkg install - done
+-- Selecting Windows SDK version 10.0.22621.0 to target Windows 10.0.26200.
+-- Configuring done (3.7s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/Usuario/Desktop/ScreenFy/build
+Versão do MSBuild 17.12.6+db5f6012c para .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Usuario/Desktop/ScreenFy/CMakeLists.txt
+  AppWindow.cpp
+  main.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\main.cpp(7,87): error C2220: o aviso a seguir é tratado como um erro [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\main.cpp(7,87): warning C4100: 'nCmdShow': parâmetro formal não referenciado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\main.cpp(7,72): warning C4100: 'lpCmdLine': parâmetro formal não referenciado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\main.cpp(7,51): warning C4100: 'hPrevInstance': parâmetro formal não referenciado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\main.cpp(7,30): warning C4100: 'hInstance': parâmetro formal não referenciado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+  D3D11VaDecoder.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\client\D3D11VaDecoder.cpp(18,35): error C2065: 'CLSID_CMSH265DecoderMFT': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+  PresentationEngine.cpp
+  DXGICapture.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp(98,28): error C2440: '=': não é possível converter de 'LARGE_INTEGER' para 'uint64_t' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp(98,28):
+      Nenhum operador de conversão definida pelo usuário disponível que possa realizar esta conversão, ou o operador não pode ser chamado
+  
+  WGCCapture.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(19,17): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(19,36): error C2039: ' Capture': não é um membro de 'Windows::Graphics' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\windows.graphics.directx.direct3d11.interop.h(26,31):
+      consulte a declaração de 'Windows::Graphics'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(19,36): error C2871: 'Capture': um namespace com este nome não existe [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(20,17): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(21,17): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(105,25): error C2061: erro de sintaxe: identificador 'Direct3D11CaptureFramePool' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(125,21): error C3646: 'm_winrtDevice': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(125,34): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(125,34): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(126,25): error C3646: 'm_item': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(126,31): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(126,31): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(127,32): error C3646: 'm_framePool': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(127,43): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(127,43): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(128,28): error C3646: 'm_session': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(128,37): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(128,37): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,9): error C2065: 'm_winrtDevice': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,37): error C2039: ' as': não é um membro de 'Microsoft::WRL::ComPtr<IInspectable>' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(210,7):
+      consulte a declaração de 'Microsoft::WRL::ComPtr<IInspectable>'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,40): error C2065: 'IDirect3DDevice': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,57): error C2059: erro de sintaxe: ')' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,47): error C2065: 'GraphicsCaptureItem': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,24): error C2672: 'winrt::get_activation_factory': nenhuma função sobrecarregada correspondente encontrada [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\base.h(6433,10):
+      poderia ser 'auto winrt::get_activation_factory(void)'
+          C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,47):
+          'winrt::get_activation_factory': argumento de modelo inválido para 'Class', tipo esperado
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\base.h(6077,30):
+      ou       'conditional<std::is_base_of_v<winrt::Windows::Foundation::IUnknown,T>,T,winrt::com_ptr<T>>::type winrt::get_activation_factory(const winrt::param::hstring &)'
+          C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,47):
+          'winrt::get_activation_factory': argumento de modelo inválido para 'Interface', tipo esperado
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(52,24): error C3536: 'factory': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(52,64): error C2059: erro de sintaxe: ')' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(59,14): error C3536: 'interop': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(59,138): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(60,28): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(63,9): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(63,23): error C2653: 'Direct3D11CaptureFramePool': não é um nome de classe ou de namespace [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(64,13): error C2065: 'm_winrtDevice': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(65,13): error C2653: 'DirectXPixelFormat': não é um nome de classe ou de namespace [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(65,33): error C2065: 'B8G8R8A8UIntNormalized': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(67,13): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(63,51): error C3861: 'CreateFreeThreaded': identificador não encontrado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(70,9): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(70,21): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(70,54): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(73,9): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(75,31): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(77,9): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(97,13): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(97,24): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(98,13): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(99,13): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(100,13): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(106,22): error C2065: 'sender': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(107,14): error C3536: 'frame': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(111,23): error C3536: 'surface': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(111,34): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(111,104): error C2059: erro de sintaxe: ')' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(112,22): error C3536: 'access': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+  CaptureEngine.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(10,10): error C3668: 'CaptureEngine::Initialize': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(11,10): error C3668: 'CaptureEngine::AcquireFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(12,10): error C3668: 'CaptureEngine::ReleaseFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(13,19): error C3668: 'CaptureEngine::GetDevice': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+  ColorConverterD3D11.cpp
+  VideoEncoderNVENC.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\encoder\VideoEncoderNVENC.cpp(110,44): error C2039: ' mappedFormat': não é um membro de '_NV_ENC_MAP_INPUT_RESOURCE' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc\nvEncodeAPI.h(2756,16):
+      consulte a declaração de '_NV_ENC_MAP_INPUT_RESOURCE'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\encoder\VideoEncoderNVENC.cpp(113,45): error C2039: ' mappedPitch': não é um membro de '_NV_ENC_MAP_INPUT_RESOURCE' [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+      C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc\nvEncodeAPI.h(2756,16):
+      consulte a declaração de '_NV_ENC_MAP_INPUT_RESOURCE'
+  
+  WasapiLoopback.cpp
+  OpusAudioEncoder.cpp
+  RtpPacketizer.cpp
+  ReedSolomonFec.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\network\ReedSolomonFec.cpp(13,21): error C2220: o aviso a seguir é tratado como um erro [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\network\ReedSolomonFec.cpp(13,21): warning C4244: '=': conversão de 'int' para 'uint8_t', possível perda de dados [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\network\ReedSolomonFec.cpp(14,27): warning C4244: '=': conversão de 'int' para 'uint8_t', possível perda de dados [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\network\ReedSolomonFec.cpp(15,21): warning C4244: '=': conversão de 'int' para 'uint8_t', possível perda de dados [C:\Users\Usuario\Desktop\ScreenFy\build\ScreenShareApp.vcxproj]
+  UdpTransport.cpp
+  Building Custom Rule C:/Users/Usuario/Desktop/ScreenFy/CMakeLists.txt
+  test_capture.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(10,10): error C3668: 'CaptureEngine::Initialize': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+  (compilando o arquivo fonte '../tests/test_capture.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(11,10): error C3668: 'CaptureEngine::AcquireFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+  (compilando o arquivo fonte '../tests/test_capture.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(12,10): error C3668: 'CaptureEngine::ReleaseFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+  (compilando o arquivo fonte '../tests/test_capture.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(13,19): error C3668: 'CaptureEngine::GetDevice': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+  (compilando o arquivo fonte '../tests/test_capture.cpp')
+  
+  DXGICapture.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp(98,28): error C2440: '=': não é possível converter de 'LARGE_INTEGER' para 'uint64_t' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+      C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp(98,28):
+      Nenhum operador de conversão definida pelo usuário disponível que possa realizar esta conversão, ou o operador não pode ser chamado
+  
+  WGCCapture.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(19,17): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(19,36): error C2039: ' Capture': não é um membro de 'Windows::Graphics' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\windows.graphics.directx.direct3d11.interop.h(26,31):
+      consulte a declaração de 'Windows::Graphics'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(19,36): error C2871: 'Capture': um namespace com este nome não existe [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(20,17): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(21,17): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(105,25): error C2061: erro de sintaxe: identificador 'Direct3D11CaptureFramePool' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(125,21): error C3646: 'm_winrtDevice': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(125,34): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(125,34): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(126,25): error C3646: 'm_item': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(126,31): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(126,31): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(127,32): error C3646: 'm_framePool': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(127,43): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(127,43): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(128,28): error C3646: 'm_session': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(128,37): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(128,37): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,9): error C2065: 'm_winrtDevice': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,37): error C2039: ' as': não é um membro de 'Microsoft::WRL::ComPtr<IInspectable>' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(210,7):
+      consulte a declaração de 'Microsoft::WRL::ComPtr<IInspectable>'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,40): error C2065: 'IDirect3DDevice': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,57): error C2059: erro de sintaxe: ')' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,47): error C2065: 'GraphicsCaptureItem': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,24): error C2672: 'winrt::get_activation_factory': nenhuma função sobrecarregada correspondente encontrada [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\base.h(6433,10):
+      poderia ser 'auto winrt::get_activation_factory(void)'
+          C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,47):
+          'winrt::get_activation_factory': argumento de modelo inválido para 'Class', tipo esperado
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\base.h(6077,30):
+      ou       'conditional<std::is_base_of_v<winrt::Windows::Foundation::IUnknown,T>,T,winrt::com_ptr<T>>::type winrt::get_activation_factory(const winrt::param::hstring &)'
+          C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,47):
+          'winrt::get_activation_factory': argumento de modelo inválido para 'Interface', tipo esperado
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(52,24): error C3536: 'factory': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(52,64): error C2059: erro de sintaxe: ')' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(59,14): error C3536: 'interop': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(59,138): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(60,28): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(63,9): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(63,23): error C2653: 'Direct3D11CaptureFramePool': não é um nome de classe ou de namespace [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(64,13): error C2065: 'm_winrtDevice': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(65,13): error C2653: 'DirectXPixelFormat': não é um nome de classe ou de namespace [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(65,33): error C2065: 'B8G8R8A8UIntNormalized': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(67,13): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(63,51): error C3861: 'CreateFreeThreaded': identificador não encontrado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(70,9): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(70,21): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(70,54): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(73,9): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(75,31): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(77,9): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(97,13): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(97,24): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(98,13): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(99,13): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(100,13): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(106,22): error C2065: 'sender': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(107,14): error C3536: 'frame': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(111,23): error C3536: 'surface': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(111,34): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(111,104): error C2059: erro de sintaxe: ')' [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(112,22): error C3536: 'access': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+  CaptureEngine.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(10,10): error C3668: 'CaptureEngine::Initialize': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(11,10): error C3668: 'CaptureEngine::AcquireFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(12,10): error C3668: 'CaptureEngine::ReleaseFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(13,19): error C3668: 'CaptureEngine::GetDevice': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_capture.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+  Building Custom Rule C:/Users/Usuario/Desktop/ScreenFy/CMakeLists.txt
+  test_encoder.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(10,10): error C3668: 'CaptureEngine::Initialize': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+  (compilando o arquivo fonte '../tests/test_encoder.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(11,10): error C3668: 'CaptureEngine::AcquireFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+  (compilando o arquivo fonte '../tests/test_encoder.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(12,10): error C3668: 'CaptureEngine::ReleaseFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+  (compilando o arquivo fonte '../tests/test_encoder.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(13,19): error C3668: 'CaptureEngine::GetDevice': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+  (compilando o arquivo fonte '../tests/test_encoder.cpp')
+  
+  DXGICapture.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp(98,28): error C2440: '=': não é possível converter de 'LARGE_INTEGER' para 'uint64_t' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Users\Usuario\Desktop\ScreenFy\src\capture\DXGICapture.cpp(98,28):
+      Nenhum operador de conversão definida pelo usuário disponível que possa realizar esta conversão, ou o operador não pode ser chamado
+  
+  WGCCapture.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(19,17): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(19,36): error C2039: ' Capture': não é um membro de 'Windows::Graphics' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\windows.graphics.directx.direct3d11.interop.h(26,31):
+      consulte a declaração de 'Windows::Graphics'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(19,36): error C2871: 'Capture': um namespace com este nome não existe [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(20,17): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(21,17): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(105,25): error C2061: erro de sintaxe: identificador 'Direct3D11CaptureFramePool' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(125,21): error C3646: 'm_winrtDevice': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(125,34): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(125,34): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(126,25): error C3646: 'm_item': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(126,31): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(126,31): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(127,32): error C3646: 'm_framePool': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(127,43): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(127,43): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(128,28): error C3646: 'm_session': especificador de substituição desconhecido [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(128,37): error C2059: erro de sintaxe: '{' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(128,37): error C2334: token(s) inesperado(s) precedendo '{'; ignorando corpo aparente de função [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,9): error C2065: 'm_winrtDevice': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,37): error C2039: ' as': não é um membro de 'Microsoft::WRL::ComPtr<IInspectable>' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(210,7):
+      consulte a declaração de 'Microsoft::WRL::ComPtr<IInspectable>'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,40): error C2065: 'IDirect3DDevice': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(43,57): error C2059: erro de sintaxe: ')' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,47): error C2065: 'GraphicsCaptureItem': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,24): error C2672: 'winrt::get_activation_factory': nenhuma função sobrecarregada correspondente encontrada [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\base.h(6433,10):
+      poderia ser 'auto winrt::get_activation_factory(void)'
+          C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,47):
+          'winrt::get_activation_factory': argumento de modelo inválido para 'Class', tipo esperado
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\base.h(6077,30):
+      ou       'conditional<std::is_base_of_v<winrt::Windows::Foundation::IUnknown,T>,T,winrt::com_ptr<T>>::type winrt::get_activation_factory(const winrt::param::hstring &)'
+          C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(51,47):
+          'winrt::get_activation_factory': argumento de modelo inválido para 'Interface', tipo esperado
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(52,24): error C3536: 'factory': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(52,64): error C2059: erro de sintaxe: ')' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(59,14): error C3536: 'interop': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(59,138): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(60,28): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(63,9): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(63,23): error C2653: 'Direct3D11CaptureFramePool': não é um nome de classe ou de namespace [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(64,13): error C2065: 'm_winrtDevice': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(65,13): error C2653: 'DirectXPixelFormat': não é um nome de classe ou de namespace [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(65,33): error C2065: 'B8G8R8A8UIntNormalized': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(67,13): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(63,51): error C3861: 'CreateFreeThreaded': identificador não encontrado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(70,9): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(70,21): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(70,54): error C2065: 'm_item': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(73,9): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(75,31): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(77,9): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(97,13): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(97,24): error C2065: 'm_session': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(98,13): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(99,13): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(100,13): error C2065: 'm_framePool': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(106,22): error C2065: 'sender': identificador não declarado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(107,14): error C3536: 'frame': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(111,23): error C3536: 'surface': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(111,34): error C2872: 'Windows': símbolo ambíguo [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt\wrl\client.h(927,11):
+      poderia ser 'Windows'
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt\winrt\Windows.Graphics.DirectX.Direct3D11.h(50,24):
+      ou       'winrt::Windows'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(111,104): error C2059: erro de sintaxe: ')' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\WGCCapture.cpp(112,22): error C3536: 'access': não pode ser usado antes de ser inicializado [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+  CaptureEngine.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(10,10): error C3668: 'CaptureEngine::Initialize': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(11,10): error C3668: 'CaptureEngine::AcquireFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(12,10): error C3668: 'CaptureEngine::ReleaseFrame': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\capture\CaptureEngine.h(13,19): error C3668: 'CaptureEngine::GetDevice': método com especificador de substituição 'override' não substituiu nenhum método de classe base [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+  (compilando o arquivo fonte '../src/capture/CaptureEngine.cpp')
+  
+  ColorConverterD3D11.cpp
+  VideoEncoderNVENC.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\encoder\VideoEncoderNVENC.cpp(110,44): error C2039: ' mappedFormat': não é um membro de '_NV_ENC_MAP_INPUT_RESOURCE' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc\nvEncodeAPI.h(2756,16):
+      consulte a declaração de '_NV_ENC_MAP_INPUT_RESOURCE'
+  
+C:\Users\Usuario\Desktop\ScreenFy\src\encoder\VideoEncoderNVENC.cpp(113,45): error C2039: ' mappedPitch': não é um membro de '_NV_ENC_MAP_INPUT_RESOURCE' [C:\Users\Usuario\Desktop\ScreenFy\build\test_encoder.vcxproj]
+      C:\Users\Usuario\Desktop\ScreenFy\src\thirdparty\nvenc\nvEncodeAPI.h(2756,16):
+      consulte a declaração de '_NV_ENC_MAP_INPUT_RESOURCE'
+  
+  WasapiLoopback.cpp
+  OpusAudioEncoder.cpp
+  Building Custom Rule C:/Users/Usuario/Desktop/ScreenFy/CMakeLists.txt
+  test_network.cpp
+  RtpPacketizer.cpp
+  ReedSolomonFec.cpp
+C:\Users\Usuario\Desktop\ScreenFy\src\network\ReedSolomonFec.cpp(13,21): error C2220: o aviso a seguir é tratado como um erro [C:\Users\Usuario\Desktop\ScreenFy\build\test_network.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\network\ReedSolomonFec.cpp(13,21): warning C4244: '=': conversão de 'int' para 'uint8_t', possível perda de dados [C:\Users\Usuario\Desktop\ScreenFy\build\test_network.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\network\ReedSolomonFec.cpp(14,27): warning C4244: '=': conversão de 'int' para 'uint8_t', possível perda de dados [C:\Users\Usuario\Desktop\ScreenFy\build\test_network.vcxproj]
+C:\Users\Usuario\Desktop\ScreenFy\src\network\ReedSolomonFec.cpp(15,21): warning C4244: '=': conversão de 'int' para 'uint8_t', possível perda de dados [C:\Users\Usuario\Desktop\ScreenFy\build\test_network.vcxproj]
+  UdpTransport.cpp

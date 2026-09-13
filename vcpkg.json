@@ -1,0 +1,16 @@
+{
+  "name": "screenshare4k",
+  "version": "1.0.0",
+  "description": "Ultra-Low Latency 4K 120 FPS Screen Share",
+  "dependencies": [
+    "opus",
+    "nlohmann-json",
+    {
+      "name": "imgui",
+      "features": [
+        "win32-binding",
+        "dx11-binding"
+      ]
+    }
+  ]
+}

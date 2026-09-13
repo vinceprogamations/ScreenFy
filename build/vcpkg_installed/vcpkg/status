@@ -1,0 +1,56 @@
+Package: vcpkg-cmake-config
+Version: 2026-07-21
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 3feabd370be5aa3695e379600f7586a4853890b0308ed7f355de9d5776de83ff
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2025-08-07
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 64eacd0a13621900bd2fba7e759f07cc52ce781f3f9aed3418741ad5c70e653d
+Status: install ok installed
+
+Package: imgui
+Version: 1.92.9
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 6ad178508c39c9e83f0d2c4638bb1bc6b29b9110015eb6d72547364883a1a998
+Description: Bloat-free Immediate Mode Graphical User interface for C++ with minimal dependencies.
+Status: install ok installed
+
+Package: imgui
+Feature: dx11-binding
+Architecture: x64-windows
+Multi-Arch: same
+Description: Make available DirectX11 binding
+Status: install ok installed
+
+Package: imgui
+Feature: win32-binding
+Architecture: x64-windows
+Multi-Arch: same
+Description: Make available Win32 binding
+Status: install ok installed
+
+Package: opus
+Version: 1.6.1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 7803a8d4ca9e81d94ef585a4825afa94c254bdb0a5c4e905041ede965e6ea179
+Description: Totally open, royalty-free, highly versatile audio codec
+Status: install ok installed
+
+Package: nlohmann-json
+Version: 3.12.0
+Port-Version: 2
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: b53c5c709c1b361a8d10b10bdc391ac1a468b3697ede9fc36776445d479fc56f
+Description: JSON for Modern C++
+Status: install ok installed
+
