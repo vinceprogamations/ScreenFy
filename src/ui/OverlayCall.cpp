@@ -20,26 +20,52 @@ void OverlayCall::UpdateTelemetry(float fps, float latencyMs, float bitrateMbps,
     m_packetLoss = packetLoss;
 }
 
-void OverlayCall::Render(float screenWidth, float screenHeight, ID3D11ShaderResourceView* pVideoSRV) {
+void OverlayCall::Render(float posX, float posY, float width, float height, ID3D11ShaderResourceView* pVideoSRV) {
     if (!m_isInCall) return;
 
     ImGuiIO& io = ImGui::GetIO();
     ImDrawList* dl = ImGui::GetForegroundDrawList();
 
-    // 1. Renderizar Janela de Ecrã Inteiro com o Vídeo
-    ImGui::SetNextWindowPos(ImVec2(0, 0));
-    ImGui::SetNextWindowSize(ImVec2(screenWidth, screenHeight));
+    // Lidar com o estado PiP primeiro (criação de janela flutuante independente)
+    if (m_viewState == ViewState::PiP) {
+        // Modo PiP: Janela Flutuante Arrastável e Clicável
+        ImGui::SetNextWindowSizeConstraints(ImVec2(320, 180), ImVec2(800, 450));
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
+        ImGui::Begin("PiP Mode", nullptr, 
+            ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_AlwaysAutoResize | 
+            ImGuiWindowFlags_NoFocusOnAppearing);
+
+        ImVec2 pipSize = ImVec2(320.0f, 180.0f); // Tamanho base
+        if (pVideoSRV) {
+            ImGui::Image(reinterpret_cast<ImTextureID>(pVideoSRV), pipSize);
+        } else {
+            ImGui::Dummy(pipSize);
+            ImGui::GetWindowDrawList()->AddRectFilled(ImGui::GetItemRectMin(), ImGui::GetItemRectMax(), IM_COL32(20, 20, 20, 255));
+        }
+
+        // Clicar para voltar ao Inline
+        if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Left)) {
+            m_viewState = ViewState::Inline;
+        }
+
+        // Mostrar um botão "X" invisível? Não precisa, a instrução diz "Ao clicar na miniatura, a interface regressa"
+        ImGui::End();
+        ImGui::PopStyleVar();
+        return; // No PiP, não renderizamos HUD nem barra inferior
+    }
+
+    // Para Fullscreen ou Inline, a janela é fixa no painel requisitado
+    ImGui::SetNextWindowPos(ImVec2(posX, posY));
+    ImGui::SetNextWindowSize(ImVec2(width, height));
     ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(14, 15, 17, 255));
-    ImGui::Begin("FullscreenVideoViewport", nullptr, 
+    ImGui::Begin("VideoViewport", nullptr, 
         ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoBringToFrontOnFocus);
 
     if (pVideoSRV) {
-        ImGui::Image(reinterpret_cast<ImTextureID>(pVideoSRV), ImVec2(screenWidth, screenHeight));
+        ImGui::Image(reinterpret_cast<ImTextureID>(pVideoSRV), ImVec2(width, height));
     } else {
-        // Placeholder estilizado quando ainda aguarda o primeiro frame
-        ImVec2 center = ImVec2(screenWidth * 0.5f, screenHeight * 0.42f);
+        ImVec2 center = ImVec2(posX + width * 0.5f, posY + height * 0.42f);
 
-        // Avatar do Parceiro no centro
         ThemeDiscord::DrawAvatar(dl, center, 42.0f, m_peerName, true, true);
 
         std::string title = m_isHost ? "TRANSMITINDO O SEU ECRA EM ULTRA-BAIXA LATENCIA" : "A RECEBER TRANSMISSAO DE ECRA";
@@ -61,13 +87,19 @@ void OverlayCall::Render(float screenWidth, float screenHeight, ID3D11ShaderReso
         }
     }
 
+    // Tecla ESC para sair de Fullscreen
+    if (m_viewState == ViewState::Fullscreen && ImGui::IsKeyPressed(ImGuiKey_Escape)) {
+        if (OnToggleOSFullscreen) OnToggleOSFullscreen(false);
+        m_viewState = ViewState::Inline;
+    }
+
     ImGui::End();
     ImGui::PopStyleColor();
 
     // 2. HUD de Telemetria no Canto Superior Direito
     float hudWidth = 260.0f;
     float hudHeight = 116.0f;
-    ImGui::SetNextWindowPos(ImVec2(screenWidth - hudWidth - 24, 24));
+    ImGui::SetNextWindowPos(ImVec2(posX + width - hudWidth - 24, posY + 24));
     ImGui::SetNextWindowSize(ImVec2(hudWidth, hudHeight));
 
     ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(20, 21, 24, 230));
@@ -121,12 +153,12 @@ void OverlayCall::Render(float screenWidth, float screenHeight, ID3D11ShaderReso
     ImGui::PopStyleColor(2);
 
     // 3. Barra Flutuante Inferior (Dock estilo Discord com Rounding 30px)
-    float barWidth = 300.0f;
+    float barWidth = 480.0f; // Aumentado para novos botões
     float barHeight = 56.0f;
-    float barX = (screenWidth - barWidth) * 0.5f;
-    float barY = screenHeight - barHeight - 28.0f;
+    float barX = posX + (width - barWidth) * 0.5f;
+    float barY = posY + height - barHeight - 28.0f;
 
-    bool isMouseNear = (io.MousePos.y > (screenHeight - 150.0f));
+    bool isMouseNear = (io.MousePos.y > (posY + height - 150.0f)) && (io.MousePos.x > posX) && (io.MousePos.x < (posX + width));
     if (isMouseNear) {
         m_hoverTimer = 2.5f;
     } else {
@@ -159,21 +191,57 @@ void OverlayCall::Render(float screenWidth, float screenHeight, ID3D11ShaderReso
         }
 
         ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 18.0f);
-        if (ImGui::Button(m_isMuted ? "🎙 Mutado" : "🎙 Microfone", ImVec2(120, 36))) {
+        if (ImGui::Button(m_isMuted ? "🎙 Mutado" : "🎙 Micro", ImVec2(90, 36))) {
             m_isMuted = !m_isMuted;
             if (OnToggleMute) OnToggleMute(m_isMuted);
         }
         ImGui::PopStyleVar();
         ImGui::PopStyleColor(3);
 
-        ImGui::SameLine(158);
+        ImGui::SameLine();
+
+        // Botão Tela Cheia
+        ImGui::PushStyleColor(ImGuiCol_Button, IM_COL32(43, 45, 49, 255));
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(60, 63, 69, 255));
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive, IM_COL32(70, 74, 82, 255));
+        ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 18.0f);
+        
+        bool isFs = (m_viewState == ViewState::Fullscreen);
+        if (ImGui::Button(isFs ? "🔲 Normal" : "🔲 E. Inteiro", ImVec2(100, 36))) {
+            if (isFs) {
+                m_viewState = ViewState::Inline;
+                if (OnToggleOSFullscreen) OnToggleOSFullscreen(false);
+            } else {
+                m_viewState = ViewState::Fullscreen;
+                if (OnToggleOSFullscreen) OnToggleOSFullscreen(true);
+            }
+        }
+        ImGui::PopStyleVar();
+        ImGui::PopStyleColor(3);
+        
+        ImGui::SameLine();
+
+        // Botão PiP / Minimizar
+        ImGui::PushStyleColor(ImGuiCol_Button, IM_COL32(43, 45, 49, 255));
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(60, 63, 69, 255));
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive, IM_COL32(70, 74, 82, 255));
+        ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 18.0f);
+        
+        if (ImGui::Button("↘ PiP", ImVec2(90, 36))) {
+            m_viewState = ViewState::PiP;
+            if (isFs && OnToggleOSFullscreen) OnToggleOSFullscreen(false);
+        }
+        ImGui::PopStyleVar();
+        ImGui::PopStyleColor(3);
+        
+        ImGui::SameLine();
 
         // Botão Desligar
         ImGui::PushStyleColor(ImGuiCol_Button, ThemeDiscord::COLOR_RED);
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ThemeDiscord::COLOR_RED_HOV);
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ThemeDiscord::COLOR_RED_ACT);
         ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 18.0f);
-        if (ImGui::Button("📞 Desligar", ImVec2(120, 36))) {
+        if (ImGui::Button("📞 Desligar", ImVec2(110, 36))) {
             m_isInCall = false;
             if (OnEndCall) OnEndCall();
         }

@@ -165,18 +165,49 @@ bool AppWindow::Initialize(int width, int height, const std::string& title) {
         m_chatPanel.AddLog("A enviar pedido de partilha para " + target.Nickname + " (" + target.RadminIP + ")...");
     };
 
-    // Callback para Desligar
     m_overlayCall.OnEndCall = [this]() {
         auto friendOpt = m_sidebar.GetSelectedFriend();
         if (friendOpt) {
             SignalingClient::Instance().SendCallEnd(friendOpt->RadminIP);
         }
         m_overlayCall.SetInCall(false, false, "", "");
+        if (m_isFullscreen) ToggleFullscreen(false);
+        m_overlayCall.SetViewState(ViewState::Inline);
         StreamEngine::Instance().Stop();
         m_chatPanel.AddLog("Sessao de partilha terminada.");
     };
 
+    m_overlayCall.OnToggleOSFullscreen = [this](bool enable) {
+        ToggleFullscreen(enable);
+    };
+
     return true;
+}
+
+void AppWindow::ToggleFullscreen(bool enable) {
+    if (enable == m_isFullscreen) return;
+    
+    DWORD dwStyle = GetWindowLong(m_hWnd, GWL_STYLE);
+    if (enable) {
+        MONITORINFO mi = { sizeof(mi) };
+        if (GetWindowPlacement(m_hWnd, &m_wpPrev) &&
+            GetMonitorInfo(MonitorFromWindow(m_hWnd, MONITOR_DEFAULTTOPRIMARY), &mi)) {
+            SetWindowLong(m_hWnd, GWL_STYLE, dwStyle & ~WS_OVERLAPPEDWINDOW);
+            SetWindowPos(m_hWnd, HWND_TOP,
+                mi.rcMonitor.left, mi.rcMonitor.top,
+                mi.rcMonitor.right - mi.rcMonitor.left,
+                mi.rcMonitor.bottom - mi.rcMonitor.top,
+                SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
+            m_isFullscreen = true;
+        }
+    } else {
+        SetWindowLong(m_hWnd, GWL_STYLE, dwStyle | WS_OVERLAPPEDWINDOW);
+        SetWindowPlacement(m_hWnd, &m_wpPrev);
+        SetWindowPos(m_hWnd, nullptr, 0, 0, 0, 0,
+            SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER |
+            SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
+        m_isFullscreen = false;
+    }
 }
 
 bool AppWindow::ProcessMessages() {
@@ -200,45 +231,54 @@ void AppWindow::RenderUI() {
 
     if (m_connectionOverlay.IsActive()) {
         m_connectionOverlay.Render(displaySize.x, displaySize.y);
-    } else if (m_overlayCall.IsInCall()) {
-        // Obter vídeo do Engine
-        ID3D11ShaderResourceView* srv = StreamEngine::Instance().GetReceivedVideoSRV();
-        // Se formos o host e estivermos a transmitir, podemos mostrar o preview local
-        if (!srv && StreamEngine::Instance().IsHosting()) {
-            srv = ScreenPreviewer::Get().GetSRV();
-        }
-        
-        // Passar os dados da telemetria
-        auto status = StreamHealthMonitor::Instance().GetStatus();
-        m_overlayCall.UpdateTelemetry(status.fps, status.pingMs, status.bitrateMbps, status.packetLossPercent);
-        
-        // Modo de Transmissão / Visualização Fullscreen
-        m_overlayCall.Render(displaySize.x, displaySize.y, srv);
     } else {
-        // Modo Padrão Discord: Múltiplas Colunas com Layout Responsivo
-        ImGui::SetNextWindowPos(ImVec2(0, 0));
-        ImGui::SetNextWindowSize(displaySize);
-        ImGui::PushStyleColor(ImGuiCol_WindowBg, ThemeDiscord::COLOR_WINDOW_BG);
-        ImGui::Begin("ScreenShare4KMain", nullptr, 
-            ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | 
-            ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoBringToFrontOnFocus);
+        bool inCall = m_overlayCall.IsInCall();
+        ViewState state = m_overlayCall.GetViewState();
 
-        float sidebarWidth = displaySize.x * 0.22f;
-        if (sidebarWidth < 240.0f) sidebarWidth = 240.0f;
-        if (sidebarWidth > 320.0f) sidebarWidth = 320.0f;
+        ID3D11ShaderResourceView* srv = nullptr;
+        if (inCall) {
+            srv = StreamEngine::Instance().GetReceivedVideoSRV();
+            if (!srv && StreamEngine::Instance().IsHosting()) {
+                srv = ScreenPreviewer::Get().GetSRV();
+            }
+            auto status = StreamHealthMonitor::Instance().GetStatus();
+            m_overlayCall.UpdateTelemetry(status.fps, status.pingMs, status.bitrateMbps, status.packetLossPercent);
+        }
 
-        m_sidebar.Render(sidebarWidth, displaySize.y);
+        if (inCall && state == ViewState::Fullscreen) {
+            m_overlayCall.Render(0.0f, 0.0f, displaySize.x, displaySize.y, srv);
+        } else {
+            ImGui::SetNextWindowPos(ImVec2(0, 0));
+            ImGui::SetNextWindowSize(displaySize);
+            ImGui::PushStyleColor(ImGuiCol_WindowBg, ThemeDiscord::COLOR_WINDOW_BG);
+            ImGui::Begin("ScreenShare4KMain", nullptr, 
+                ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | 
+                ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoBringToFrontOnFocus);
 
-        ImGui::SameLine(0, 0);
+            float sidebarWidth = displaySize.x * 0.22f;
+            if (sidebarWidth < 240.0f) sidebarWidth = 240.0f;
+            if (sidebarWidth > 320.0f) sidebarWidth = 320.0f;
 
-        float remainingWidth = displaySize.x - sidebarWidth;
-        if (remainingWidth < 400.0f) remainingWidth = 400.0f;
-        m_chatPanel.Render(m_sidebar.GetSelectedFriend(), remainingWidth, displaySize.y);
+            m_sidebar.Render(sidebarWidth, displaySize.y);
 
-        ImGui::End();
-        ImGui::PopStyleColor();
+            ImGui::SameLine(0, 0);
 
-        // Se o painel de configuracoes estiver aberto, renderiza sobreposto em ecra inteiro
+            float remainingWidth = displaySize.x - sidebarWidth;
+            if (remainingWidth < 400.0f) remainingWidth = 400.0f;
+
+            if (inCall && state == ViewState::Inline) {
+                m_overlayCall.Render(sidebarWidth, 0.0f, remainingWidth, displaySize.y, srv);
+            } else {
+                m_chatPanel.Render(m_sidebar.GetSelectedFriend(), remainingWidth, displaySize.y);
+                if (inCall && state == ViewState::PiP) {
+                    m_overlayCall.Render(0.0f, 0.0f, 0.0f, 0.0f, srv);
+                }
+            }
+
+            ImGui::End();
+            ImGui::PopStyleColor();
+        }
+
         if (m_showSettings) {
             m_settingsPanel.Render(&m_showSettings);
         }

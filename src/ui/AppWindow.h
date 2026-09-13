@@ -21,6 +21,7 @@ public:
     void RenderUI();
 
     HWND GetHWND() const { return m_hWnd; }
+    void ToggleFullscreen(bool enable);
 
 private:
     static LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -44,4 +45,8 @@ private:
     std::string m_incomingCaller;
     std::string m_incomingCallerIp;
     int m_incomingVideoPort = 50000;
+
+    // Estado de Tela Cheia
+    WINDOWPLACEMENT m_wpPrev = { sizeof(m_wpPrev) };
+    bool m_isFullscreen = false;
 };
