@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Otimizações de alta performance para MSVC
 if(MSVC)
-    add_compile_options(/O2 /Oi /GL /W4)
+    add_compile_options(/O2 /Oi /GL /W4 /utf-8)
     add_compile_definitions(NOMINMAX WIN32_LEAN_AND_MEAN)
     set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 endif()

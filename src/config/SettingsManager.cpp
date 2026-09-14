@@ -22,6 +22,10 @@ void SettingsManager::Initialize() {
     if (!m_settings.Nickname.empty()) {
         FriendManager::Instance().SetMyNickname(m_settings.Nickname);
     }
+    if (!m_settings.AvatarPath.empty()) {
+        FriendManager::Instance().SetMyAvatarPath(m_settings.AvatarPath);
+    }
+    FriendManager::Instance().SetMyStatus(static_cast<UserStatus>(m_settings.Status));
 }
 
 std::string SettingsManager::GetConfigPath() const {

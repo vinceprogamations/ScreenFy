@@ -173,7 +173,7 @@ void StreamEngine::ReceiveLoop() {
     
     while (m_running) {
         int bytes = m_transport->Receive(rcvBuffer.data(), rcvBuffer.size());
-        if (bytes > sizeof(RtpHeader)) {
+        if (bytes > static_cast<int>(sizeof(RtpHeader))) {
             RtpHeader* hdr = reinterpret_cast<RtpHeader*>(rcvBuffer.data());
             // Anexar payload
             currentNal.insert(currentNal.end(), rcvBuffer.begin() + sizeof(RtpHeader), rcvBuffer.begin() + bytes);

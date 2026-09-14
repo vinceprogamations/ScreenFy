@@ -73,8 +73,10 @@ ID3D11ShaderResourceView* TextureLoader::LoadTextureFromFile(const std::string& 
         return nullptr;
     }
 
-    // Converter path para wide string
-    std::wstring wPath(filePath.begin(), filePath.end());
+    // Converter path UTF-8 para wide string (suporte a acentos/unicode)
+    int size_needed = MultiByteToWideChar(CP_UTF8, 0, filePath.c_str(), -1, NULL, 0);
+    std::wstring wPath(size_needed, 0);
+    MultiByteToWideChar(CP_UTF8, 0, filePath.c_str(), -1, &wPath[0], size_needed);
 
     ComPtr<IWICBitmapDecoder> pDecoder;
     hr = pWICFactory->CreateDecoderFromFilename(
