@@ -1,7 +1,8 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-$LogDir = Join-Path $PSScriptRoot "build_logs"
+$ProjectRoot = (Get-Item $PSScriptRoot).Parent.FullName
+$LogDir = Join-Path $ProjectRoot "build_logs"
 if (-not (Test-Path $LogDir)) { New-Item -ItemType Directory -Path $LogDir | Out-Null }
 $LogFile = Join-Path $LogDir "build_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
 
@@ -25,7 +26,7 @@ $runspace.ThreadOptions = "ReuseThread"
 $runspace.Open()
 $runspace.SessionStateProxy.SetVariable("form", $form)
 $runspace.SessionStateProxy.SetVariable("rtb", $rtb)
-$runspace.SessionStateProxy.SetVariable("PSScriptRoot", $PSScriptRoot)
+$runspace.SessionStateProxy.SetVariable("ProjectRoot", $ProjectRoot)
 $runspace.SessionStateProxy.SetVariable("LogFile", $LogFile)
 
 $psCmd = [PowerShell]::Create().AddScript({
@@ -46,8 +47,8 @@ $psCmd = [PowerShell]::Create().AddScript({
     
     function Run-Command-Stream {
         param([string]$BatContent, [string]$LogName)
-        $tempBat = Join-Path $PSScriptRoot "temp_build.bat"
-        $tempLog = Join-Path $PSScriptRoot "build_logs\$LogName"
+        $tempBat = Join-Path $ProjectRoot "temp_build.bat"
+        $tempLog = Join-Path $ProjectRoot "build_logs\$LogName"
         
         $wrapperBat = "@echo off`ncall :main > `"$tempLog`" 2>&1`nexit /b %ERRORLEVEL%`n:main`n$BatContent"
         $wrapperBat | Out-File $tempBat -Encoding ascii
@@ -87,7 +88,7 @@ $psCmd = [PowerShell]::Create().AddScript({
     Log-Message "Iniciando validador de compilacao (Log guardado em build_logs)..." "Cyan"
     
     Log-Message "Etapa 1: Verificando infraestrutura..." "Yellow"
-    $cmakePath = Join-Path $PSScriptRoot "tools\cmake\bin\cmake.exe"
+    $cmakePath = Join-Path $ProjectRoot "tools\cmake\bin\cmake.exe"
     if (-not (Test-Path $cmakePath)) {
         $sysCmake = Get-Command cmake.exe -ErrorAction SilentlyContinue
         if ($sysCmake) {
@@ -95,7 +96,7 @@ $psCmd = [PowerShell]::Create().AddScript({
             Log-Message "-> CMake detectado no sistema: $cmakePath" "Lime"
         }
     }
-    $vcpkgPath = Join-Path $PSScriptRoot "tools\vcpkg\scripts\buildsystems\vcpkg.cmake"
+    $vcpkgPath = Join-Path $ProjectRoot "tools\vcpkg\scripts\buildsystems\vcpkg.cmake"
     
     if (-not (Test-Path $cmakePath)) {
         Log-Message "ERRO: CMake nao encontrado. Execute o install_tools.bat!" "Red"
@@ -158,8 +159,8 @@ $psCmd = [PowerShell]::Create().AddScript({
 
     Log-Message "Etapa 3: Gerando build files (CMake)..." "Yellow"
     $cmakeDir = Split-Path $cmakePath
-    $batCmake = "@echo off`nset PATH=`"$cmakeDir`";%PATH%`ncall `"$foundVcvars`"`ncmake -B `"$PSScriptRoot\build`" -DCMAKE_TOOLCHAIN_FILE=`"$vcpkgPath`""
-    $batCmake | Out-File (Join-Path $PSScriptRoot "debug.bat") -Encoding ascii
+    $batCmake = "@echo off`nset PATH=`"$cmakeDir`";%PATH%`ncall `"$foundVcvars`"`ncmake -B `"$ProjectRoot\build`" -DCMAKE_TOOLCHAIN_FILE=`"$vcpkgPath`""
+    $batCmake | Out-File (Join-Path $ProjectRoot "scripts_dev\debug.bat") -Encoding ascii
     $exitCode = Run-Command-Stream $batCmake "step3_cmake.log"
     
     if ($exitCode -ne 0) {
@@ -168,7 +169,7 @@ $psCmd = [PowerShell]::Create().AddScript({
     }
 
     Log-Message "Etapa 4: Compilando o Projeto..." "Yellow"
-    $batBuild = "@echo off`nset PATH=`"$cmakeDir`";%PATH%`ncall `"$foundVcvars`"`ncmake --build `"$PSScriptRoot\build`" --config Release"
+    $batBuild = "@echo off`nset PATH=`"$cmakeDir`";%PATH%`ncall `"$foundVcvars`"`ncmake --build `"$ProjectRoot\build`" --config Release"
     $exitCode = Run-Command-Stream $batBuild "step4_build.log"
     
     if ($exitCode -eq 0) {
@@ -176,14 +177,9 @@ $psCmd = [PowerShell]::Create().AddScript({
         Log-Message "SUCESSO ABSOLUTO! Projeto compilado." "Lime"
         Log-Message "App Final: build\Release\ScreenShareApp.exe" "Lime"
         
-        $exePath = Join-Path $PSScriptRoot "build\Release\ScreenShareApp.exe"
-        $dllPath = Join-Path $PSScriptRoot "build\Release\opus.dll"
+        $exePath = Join-Path $ProjectRoot "build\Release\ScreenShareApp.exe"
         if (Test-Path $exePath) {
-            Copy-Item -Path $exePath -Destination (Join-Path $PSScriptRoot "ScreenShare.exe") -Force
-            if (Test-Path $dllPath) {
-                Copy-Item -Path $dllPath -Destination (Join-Path $PSScriptRoot "opus.dll") -Force
-            }
-            Log-Message "Pronto! Executavel gerado na raiz: ScreenShare.exe" "Lime"
+            Log-Message "Pronto! Executavel gerado." "Lime"
         }
     } else {
         Log-Message "ERRO DE COMPILACAO. Codigo ($exitCode). Verifique logs." "Red"

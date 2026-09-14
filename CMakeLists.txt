@@ -83,6 +83,7 @@ set(UI_SOURCES
     src/ui/TextureLoader.cpp
     src/capture/ScreenPreviewer.cpp
     src/main.cpp
+    src/app.rc
 )
 
 # App Principal Integrada

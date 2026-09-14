@@ -389,6 +389,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\ui\TextureLoader.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\capture\ScreenPreviewer.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\main.cpp" />
+    <ResourceCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\app.rc" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\client\D3D11VaDecoder.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\client\PresentationEngine.cpp" />
     <ClCompile Include="C:\Users\Usuario\Desktop\ScreenFy\src\engine\StreamEngine.cpp" />
