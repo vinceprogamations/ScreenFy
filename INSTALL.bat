@@ -3,6 +3,9 @@ setlocal enabledelayedexpansion
 title Instalar ScreenFy 4K
 color 0b
 
+:: Garantir que o CWD é a pasta raiz do projeto
+cd /d "%~dp0"
+
 echo ==============================================================================
 echo                      BEM-VINDO AO SCREENFY 4K
 echo ==============================================================================
@@ -12,21 +15,23 @@ echo (Vai instalar dependencias, compilar o codigo e criar um atalho)
 echo.
 pause
 
-:: 1. Executar o script de instalacao e compilacao
+:: 1. Executar o script de instalacao de dependencias
 echo.
-echo [1/3] A preparar ferramentas e a compilar o ScreenFy...
+echo [1/3] A preparar ferramentas (C++, CMake, vcpkg)...
+call scripts_dev\install_tools.bat
+
+:: 2. Executar o script de compilacao
+echo.
+echo [2/3] A compilar o ScreenFy 4K...
 call scripts_dev\build.bat
 
-:: 2. Copiar as DLLs necessarias para a pasta de Release
+:: 3. Copiar as DLLs necessarias para a pasta de Release
 echo.
-echo [2/3] A configurar ficheiros do jogo (DLLs)...
+echo [3/3] A configurar ficheiros do jogo (DLLs) e Atalhos...
 if not exist "build\Release" mkdir "build\Release"
 copy /y opus.dll build\Release\opus.dll >nul
-echo [OK] Dependencias de Audio copiadas.
 
-:: 3. Criar Atalho na Area de Trabalho
-echo.
-echo [3/3] A criar atalho na tua Area de Trabalho...
+:: Criar Atalho na Area de Trabalho
 set SCRIPT="%TEMP%\CreateShortcut.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") > %SCRIPT%
 echo sLinkFile = "%USERPROFILE%\Desktop\ScreenFy 4K.lnk" >> %SCRIPT%

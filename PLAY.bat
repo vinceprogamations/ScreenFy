@@ -2,6 +2,9 @@
 setlocal enabledelayedexpansion
 title ScreenFy 4K
 
+:: Garantir que o CWD é a pasta raiz do projeto
+cd /d "%~dp0"
+
 echo ==============================================================================
 echo                      A INICIAR O SCREENFY 4K...
 echo ==============================================================================

@@ -11,7 +11,8 @@ echo Tudo e configurado automaticamente dentro da pasta do projeto.
 echo ==============================================================================
 echo.
 
-set TOOLS_DIR=%~dp0tools
+set ROOT_DIR=%~dp0..
+set TOOLS_DIR=%ROOT_DIR%\tools
 if not exist "%TOOLS_DIR%" mkdir "%TOOLS_DIR%"
 
 :: -------------------------------------------------------------------------
