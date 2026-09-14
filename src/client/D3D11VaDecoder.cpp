@@ -19,7 +19,11 @@ bool D3D11VaDecoder::Initialize(ID3D11Device* pDevice) {
     if (!pDevice) return false;
     m_device = pDevice;
 
-    HRESULT hr = CoCreateInstance(CLSID_MSH265DecoderMFT, nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&m_decoder));
+    // {62CE7E72-4C71-4d20-B15D-452831A87D9D}
+    static const GUID CLSID_CMSH264DecoderMFT_Local = 
+        { 0x62ce7e72, 0x4c71, 0x4d20, { 0xb1, 0x5d, 0x45, 0x28, 0x31, 0xa8, 0x7d, 0x9d } };
+
+    HRESULT hr = CoCreateInstance(CLSID_CMSH264DecoderMFT_Local, nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&m_decoder));
     if (FAILED(hr)) return false;
 
     UINT resetToken = 0;
@@ -39,7 +43,7 @@ bool D3D11VaDecoder::Initialize(ID3D11Device* pDevice) {
     Microsoft::WRL::ComPtr<IMFMediaType> pInputType;
     MFCreateMediaType(&pInputType);
     pInputType->SetGUID(MF_MT_MAJOR_TYPE, MFMediaType_Video);
-    pInputType->SetGUID(MF_MT_SUBTYPE, MFVideoFormat_HEVC);
+    pInputType->SetGUID(MF_MT_SUBTYPE, MFVideoFormat_H264);
     m_decoder->SetInputType(0, pInputType.Get(), 0);
 
     Microsoft::WRL::ComPtr<IMFMediaType> pOutputType;

@@ -55,9 +55,9 @@ bool VideoEncoderNVENC::Initialize(ID3D11Device* pDevice, int width, int height,
         return false;
     }
 
-    // Configuração HEVC (H.265) Low Latency, CBR configurável, no b-frames
+    // Configuração H.264 Low Latency, CBR configurável, no b-frames
     NV_ENC_INITIALIZE_PARAMS initParams = { NV_ENC_INITIALIZE_PARAMS_VER };
-    initParams.encodeGUID = NV_ENC_CODEC_HEVC_GUID;
+    initParams.encodeGUID = NV_ENC_CODEC_H264_GUID;
     initParams.presetGUID = NV_ENC_PRESET_P1_GUID;
     initParams.tuningInfo = NV_ENC_TUNING_INFO_ULTRA_LOW_LATENCY;
     initParams.encodeWidth = width;
@@ -74,6 +74,9 @@ bool VideoEncoderNVENC::Initialize(ID3D11Device* pDevice, int width, int height,
     if (m_nvenc.nvEncGetEncodePresetConfigEx(m_hEncoder, initParams.encodeGUID, initParams.presetGUID, initParams.tuningInfo, &presetConfig) != NV_ENC_SUCCESS) return false;
 
     m_encodeConfig = presetConfig.presetCfg;
+    m_encodeConfig.encodeCodecConfig.h264Config.idrPeriod = 60; // IDR 1x por segundo
+    m_encodeConfig.encodeCodecConfig.h264Config.enableIntraRefresh = 1;
+    m_encodeConfig.encodeCodecConfig.h264Config.intraRefreshPeriod = 60;
     m_encodeConfig.frameIntervalP = 1; // sem B-frames
     m_encodeConfig.rcParams.rateControlMode = NV_ENC_PARAMS_RC_CBR;
     m_encodeConfig.rcParams.averageBitRate = targetBitRate;

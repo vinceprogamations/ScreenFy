@@ -81,7 +81,7 @@ void OverlayCall::Render(float posX, float posY, float width, float height, ID3D
             ImVec2 peerSize = fontSub->CalcTextSizeA(15.0f, FLT_MAX, 0.0f, peerInfo.c_str());
             dl->AddText(fontSub, 15.0f, ImVec2(center.x - peerSize.x * 0.5f, center.y + 92), IM_COL32(148, 155, 164, 255), peerInfo.c_str());
 
-            std::string proto = "Pipeline: NVENC HEVC / WASAPI Opus / UDP RTP FEC (4K 120 FPS)";
+            std::string proto = "Pipeline: NVENC/VCN H.264 / WASAPI Opus / UDP RTP FEC (4K 120 FPS)";
             ImVec2 protoSize = fontSub->CalcTextSizeA(14.0f, FLT_MAX, 0.0f, proto.c_str());
             dl->AddText(fontSub, 14.0f, ImVec2(center.x - protoSize.x * 0.5f, center.y + 116), IM_COL32(88, 101, 242, 255), proto.c_str());
         }
